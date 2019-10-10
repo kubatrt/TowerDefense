@@ -45,6 +45,7 @@ public class GameBoard : MonoBehaviour
         {
             t.ClearPath();
         }
+        // default
         tiles[0].BecomeDestination();
         searchFrontier.Enqueue(tiles[0]);
 
@@ -59,6 +60,10 @@ public class GameBoard : MonoBehaviour
                 searchFrontier.Enqueue(tile.GrowPathWest());
             }
         }
-        
+           
+        foreach(GameTile tile in tiles)
+        {
+            tile.ShowPath();
+        }
     }
 }

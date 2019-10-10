@@ -56,4 +56,24 @@ public class GameTile : MonoBehaviour
     public GameTile GrowPathEast() => GrowPathTo(east);
     public GameTile GrowPathWest() => GrowPathTo(west);
 
+    static Quaternion northRotation = Quaternion.Euler(90f, 0f, 0f),
+        eastRotation = Quaternion.Euler(90f, 90f, 0f),
+        southRotation = Quaternion.Euler(90f, 180f, 0f),
+        westRotation = Quaternion.Euler(90f, 270f, 0f);
+
+    public void ShowPath()
+    {
+        if(distance == 0)
+        {
+            arrow.gameObject.SetActive(false);
+            return;
+        }
+        arrow.gameObject.SetActive(true);
+        arrow.localRotation =
+            nextOnPath == north ? northRotation :
+            nextOnPath == east ? eastRotation :
+            nextOnPath == south ? southRotation :
+            westRotation;
+    }
+
 }
