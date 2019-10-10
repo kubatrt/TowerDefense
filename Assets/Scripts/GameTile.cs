@@ -76,4 +76,8 @@ public class GameTile : MonoBehaviour
             westRotation;
     }
 
+    public bool IsAlternative { get; set; }
+
+
+
 }
